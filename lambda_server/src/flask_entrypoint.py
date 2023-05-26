@@ -200,3 +200,7 @@ def report_stats():
 
 # run initial setup
 initial_setup()
+
+
+def create_app():
+  return app
