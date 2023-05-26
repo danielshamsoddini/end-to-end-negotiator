@@ -1,0 +1,406 @@
+================================================================================
+Alice : book=(count:1 value:2) hat=(count:1 value:5) ball=(count:3 value:1)
+Bob   : book=(count:1 value:0) hat=(count:1 value:10) ball=(count:3 value:0)
+--------------------------------------------------------------------------------
+Alice : i would like the hat and the book . <eos>
+Bob   : deal <eos>
+Alice : <selection>
+Alice : book=1 hat=1 ball=0
+Bob   : book=0 hat=0 ball=0
+================================================================================
+
+================================================================================
+Alice : book=(count:2 value:2) hat=(count:2 value:3) ball=(count:1 value:0)
+Bob   : book=(count:2 value:1) hat=(count:2 value:2) ball=(count:1 value:4)
+--------------------------------------------------------------------------------
+Bob   : i'd like the ball and 2 books please . <eos>
+Alice : i need the hats . you can have the rest . <eos>
+Bob   : i need the ball and the hats <eos>
+Alice : ok deal <eos>
+Bob   : <selection>
+Alice : book=2 hat=2 ball=0
+Bob   : book=0 hat=2 ball=1
+================================================================================
+
+================================================================================
+Alice : book=(count:1 value:0) hat=(count:2 value:5) ball=(count:2 value:0)
+Bob   : book=(count:1 value:4) hat=(count:2 value:1) ball=(count:2 value:2)
+--------------------------------------------------------------------------------
+Alice : i would like the hats and the book . <eos>
+Bob   : i need the balls and the book <eos>
+Alice : i can't give up the hats . i can give you the book if i can have the hats and both balls <eos>
+Bob   : okay , i'll take the book and one ball . <eos>
+Alice : <selection>
+Alice : book=0 hat=2 ball=1
+Bob   : book=1 hat=0 ball=1
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 10 points
+Bob   : 6 points
+--------------------------------------------------------------------------------
+dialog_len=5.00 sent_len=7.69 agree=100.00% advantage=4.00 time=0.049s comb_rew=16.00 alice_rew=10.00 alice_sel=66.67% alice_unique=6 bob_rew=6.00 bob_sel=33.33% bob_unique=6 full_match=0.77
+--------------------------------------------------------------------------------
+debug: 1 0 2 5 2 0 item0=0 item1=2 item2=1 item0=1 item1=0 item2=1
+debug: 1 4 2 1 2 2 item0=1 item1=0 item2=1 item0=0 item1=2 item2=1
+================================================================================
+
+================================================================================
+Alice : book=(count:1 value:5) hat=(count:1 value:2) ball=(count:3 value:1)
+Bob   : book=(count:1 value:2) hat=(count:1 value:8) ball=(count:3 value:0)
+--------------------------------------------------------------------------------
+Alice : i would like the book and the hat . <eos>
+Bob   : i need hat or no deal <eos>
+Alice : ok , i want the book and the hat . <eos>
+Bob   : no deal <eos>
+Alice : i will take the book and the hat and you can have the balls . <eos>
+Bob   : no deal <eos>
+Alice : the book is a lot for me <eos>
+Bob   : no deal <eos>
+Alice : no deal <eos>
+Bob   : no deal <eos>
+Alice : no deal <eos>
+Bob   : <selection>
+Alice : <no_agreement> <no_agreement> <no_agreement>
+Bob   : <no_agreement> <no_agreement> <no_agreement>
+--------------------------------------------------------------------------------
+Disagreement?!
+Alice : 0 (potential 0)
+Bob   : 0 (potential 0)
+--------------------------------------------------------------------------------
+dialog_len=8.50 sent_len=6.84 agree=50.00% advantage=4.00 time=0.060s comb_rew=8.00 alice_rew=5.00 alice_sel=50.00% alice_unique=11 bob_rew=3.00 bob_sel=50.00% bob_unique=8 full_match=0.76
+--------------------------------------------------------------------------------
+debug: 1 5 1 2 3 1 <no_agreement> <no_agreement> <no_agreement> <no_agreement> <no_agreement> <no_agreement>
+debug: 1 2 1 8 3 0 <no_agreement> <no_agreement> <no_agreement> <no_agreement> <no_agreement> <no_agreement>
+================================================================================
+
+================================================================================
+Alice : book=(count:2 value:2) hat=(count:2 value:1) ball=(count:1 value:4)
+Bob   : book=(count:2 value:1) hat=(count:2 value:2) ball=(count:1 value:4)
+--------------------------------------------------------------------------------
+Alice : i would like the ball and books . <eos>
+Bob   : i need the ball and the hats <eos>
+Alice : ok deal <eos>
+Bob   : <selection>
+Alice : book=2 hat=0 ball=0
+Bob   : book=0 hat=2 ball=1
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 4 points
+Bob   : 8 points
+--------------------------------------------------------------------------------
+dialog_len=7.00 sent_len=6.62 agree=66.67% advantage=0.00 time=0.048s comb_rew=9.33 alice_rew=4.67 alice_sel=40.00% alice_unique=12 bob_rew=4.67 bob_sel=60.00% bob_unique=8 full_match=0.76
+--------------------------------------------------------------------------------
+debug: 2 2 2 1 1 4 item0=2 item1=0 item2=0 item0=0 item1=2 item2=1
+debug: 2 1 2 2 1 4 item0=0 item1=2 item2=1 item0=2 item1=0 item2=0
+================================================================================
+
+================================================================================
+Alice : book=(count:2 value:1) hat=(count:1 value:2) ball=(count:2 value:3)
+Bob   : book=(count:2 value:1) hat=(count:1 value:8) ball=(count:2 value:0)
+--------------------------------------------------------------------------------
+Alice : i would like the balls and the hat . <eos>
+Bob   : you can have the hat but i need the rest <eos>
+Alice : deal . <eos>
+Bob   : <selection>
+Alice : book=0 hat=1 ball=0
+Bob   : book=0 hat=1 ball=0
+================================================================================
+
+================================================================================
+Alice : book=(count:1 value:1) hat=(count:2 value:0) ball=(count:3 value:3)
+Bob   : book=(count:1 value:2) hat=(count:2 value:4) ball=(count:3 value:0)
+--------------------------------------------------------------------------------
+Alice : can i have the balls and the book ? <eos>
+Bob   : i need one hat and the book <eos>
+Alice : ok deal <eos>
+Bob   : <selection>
+Alice : book=0 hat=1 ball=3
+Bob   : book=1 hat=1 ball=0
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 9 points
+Bob   : 6 points
+--------------------------------------------------------------------------------
+dialog_len=6.25 sent_len=6.46 agree=75.00% advantage=1.00 time=0.042s comb_rew=10.75 alice_rew=5.75 alice_sel=28.57% alice_unique=15 bob_rew=5.00 bob_sel=71.43% bob_unique=10 full_match=0.76
+--------------------------------------------------------------------------------
+debug: 1 1 2 0 3 3 item0=0 item1=1 item2=3 item0=1 item1=1 item2=0
+debug: 1 2 2 4 3 0 item0=1 item1=1 item2=0 item0=0 item1=1 item2=3
+================================================================================
+
+================================================================================
+Alice : book=(count:1 value:6) hat=(count:1 value:1) ball=(count:3 value:1)
+Bob   : book=(count:1 value:1) hat=(count:1 value:6) ball=(count:3 value:1)
+--------------------------------------------------------------------------------
+Alice : what would you like <eos>
+Bob   : the hat and book <eos>
+Alice : no deal . i need the book and the hat <eos>
+Bob   : i need the hat . <eos>
+Alice : ok , well then i will take the book and you can have the rest <eos>
+Bob   : deal <eos>
+Alice : <selection>
+Alice : book=1 hat=0 ball=0
+Bob   : book=0 hat=1 ball=3
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 6 points
+Bob   : 9 points
+--------------------------------------------------------------------------------
+dialog_len=6.40 sent_len=6.48 agree=80.00% advantage=0.00 time=0.043s comb_rew=11.60 alice_rew=5.80 alice_sel=37.50% alice_unique=18 bob_rew=5.80 bob_sel=62.50% bob_unique=12 full_match=0.75
+--------------------------------------------------------------------------------
+debug: 1 6 1 1 3 1 item0=1 item1=0 item2=0 item0=0 item1=1 item2=3
+debug: 1 1 1 6 3 1 item0=0 item1=1 item2=3 item0=1 item1=0 item2=0
+================================================================================
+
+================================================================================
+Alice : book=(count:1 value:9) hat=(count:1 value:1) ball=(count:3 value:0)
+Bob   : book=(count:1 value:7) hat=(count:1 value:0) ball=(count:3 value:1)
+--------------------------------------------------------------------------------
+Alice : i would like the book and the hat . <eos>
+Bob   : i need the book and two balls <eos>
+Alice : i can do that <eos>
+Bob   : ok <eos>
+Alice : <selection>
+Alice : book=0 hat=1 ball=1
+Bob   : book=1 hat=0 ball=2
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 1 points
+Bob   : 9 points
+--------------------------------------------------------------------------------
+dialog_len=6.17 sent_len=6.35 agree=83.33% advantage=-1.60 time=0.040s comb_rew=11.33 alice_rew=5.00 alice_sel=44.44% alice_unique=19 bob_rew=6.33 bob_sel=55.56% bob_unique=14 full_match=0.78
+--------------------------------------------------------------------------------
+debug: 1 9 1 1 3 0 item0=0 item1=1 item2=1 item0=1 item1=0 item2=2
+debug: 1 7 1 0 3 1 item0=1 item1=0 item2=2 item0=0 item1=1 item2=1
+================================================================================
+
+================================================================================
+Alice : book=(count:1 value:6) hat=(count:1 value:4) ball=(count:4 value:0)
+Bob   : book=(count:1 value:6) hat=(count:1 value:0) ball=(count:4 value:1)
+--------------------------------------------------------------------------------
+Bob   : i would like the book and the balls . <eos>
+Alice : i would like the book and all the balls <eos>
+Bob   : i can do that . <eos>
+Alice : ok , i get the book and the hat you get the balls <eos>
+Bob   : <selection>
+Alice : book=1 hat=1 ball=0
+Bob   : book=0 hat=0 ball=4
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 10 points
+Bob   : 4 points
+--------------------------------------------------------------------------------
+dialog_len=6.00 sent_len=6.52 agree=85.71% advantage=-0.33 time=0.040s comb_rew=11.71 alice_rew=5.71 alice_sel=40.00% alice_unique=21 bob_rew=6.00 bob_sel=60.00% bob_unique=16 full_match=0.76
+--------------------------------------------------------------------------------
+debug: 1 6 1 4 4 0 item0=1 item1=1 item2=0 item0=0 item1=0 item2=4
+debug: 1 6 1 0 4 1 item0=0 item1=0 item2=4 item0=1 item1=1 item2=0
+================================================================================
+
+================================================================================
+Alice : book=(count:1 value:4) hat=(count:4 value:0) ball=(count:1 value:6)
+Bob   : book=(count:1 value:0) hat=(count:4 value:2) ball=(count:1 value:2)
+--------------------------------------------------------------------------------
+Alice : i would like the ball and the book . <eos>
+Bob   : i can give you the ball if i get the rest <eos>
+Alice : i need the book too . <eos>
+Bob   : ok , it's a deal for me . <eos>
+Alice : ok , take the book and 2 hats deal <eos>
+Bob   : deal <eos>
+Alice : <selection>
+Alice : book=0 hat=2 ball=1
+Bob   : book=1 hat=2 ball=0
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 6 points
+Bob   : 4 points
+--------------------------------------------------------------------------------
+dialog_len=6.12 sent_len=6.61 agree=87.50% advantage=0.00 time=0.042s comb_rew=11.50 alice_rew=5.75 alice_sel=45.45% alice_unique=24 bob_rew=5.75 bob_sel=54.55% bob_unique=18 full_match=0.74
+--------------------------------------------------------------------------------
+debug: 1 4 4 0 1 6 item0=0 item1=2 item2=1 item0=1 item1=2 item2=0
+debug: 1 0 4 2 1 2 item0=1 item1=2 item2=0 item0=0 item1=2 item2=1
+================================================================================
+
+================================================================================
+Alice : book=(count:1 value:2) hat=(count:3 value:0) ball=(count:1 value:8)
+Bob   : book=(count:1 value:1) hat=(count:3 value:2) ball=(count:1 value:3)
+--------------------------------------------------------------------------------
+Bob   : i would like the hats and the ball . <eos>
+Alice : i want the ball and the book <eos>
+Bob   : okay , i'll take the hats and ball . <eos>
+Alice : <selection>
+Alice : book=1 hat=0 ball=1
+Bob   : book=0 hat=3 ball=0
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 10 points
+Bob   : 6 points
+--------------------------------------------------------------------------------
+dialog_len=5.89 sent_len=6.65 agree=88.89% advantage=0.50 time=0.040s comb_rew=12.00 alice_rew=6.22 alice_sel=50.00% alice_unique=25 bob_rew=5.78 bob_sel=50.00% bob_unique=20 full_match=0.74
+--------------------------------------------------------------------------------
+debug: 1 2 3 0 1 8 item0=1 item1=0 item2=1 item0=0 item1=3 item2=0
+debug: 1 1 3 2 1 3 item0=0 item1=3 item2=0 item0=1 item1=0 item2=1
+================================================================================
+
+================================================================================
+Alice : book=(count:1 value:7) hat=(count:1 value:3) ball=(count:3 value:0)
+Bob   : book=(count:1 value:6) hat=(count:1 value:1) ball=(count:3 value:1)
+--------------------------------------------------------------------------------
+Alice : i would like the book and hat you can have the balls <eos>
+Bob   : ok <eos>
+Alice : <selection>
+Alice : book=1 hat=1 ball=0
+Bob   : book=0 hat=0 ball=3
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 10 points
+Bob   : 3 points
+--------------------------------------------------------------------------------
+dialog_len=5.60 sent_len=6.59 agree=90.00% advantage=1.22 time=0.038s comb_rew=12.10 alice_rew=6.60 alice_sel=53.85% alice_unique=26 bob_rew=5.50 bob_sel=46.15% bob_unique=20 full_match=0.74
+--------------------------------------------------------------------------------
+debug: 1 7 1 3 3 0 item0=1 item1=1 item2=0 item0=0 item1=0 item2=3
+debug: 1 6 1 1 3 1 item0=0 item1=0 item2=3 item0=1 item1=1 item2=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:1) hat=(count:1 value:5) ball=(count:1 value:2)
+Bob   : book=(count:3 value:2) hat=(count:1 value:4) ball=(count:1 value:0)
+--------------------------------------------------------------------------------
+Bob   : i will take the hat and the ball . <eos>
+Alice : i need the hat and the ball <eos>
+Bob   : i need the hat and the ball <eos>
+Alice : i need the hat and ball <eos>
+Bob   : i can not make a deal without the hat <eos>
+Alice : i need the hat too . <eos>
+Bob   : ok , i need the hat too . <eos>
+Alice : ok , i will take the hat and the ball <eos>
+Bob   : <selection>
+Alice : book=0 hat=1 ball=1
+Bob   : book=3 hat=0 ball=0
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 7 points
+Bob   : 6 points
+--------------------------------------------------------------------------------
+dialog_len=5.91 sent_len=6.74 agree=90.91% advantage=1.20 time=0.041s comb_rew=12.18 alice_rew=6.64 alice_sel=50.00% alice_unique=30 bob_rew=5.55 bob_sel=50.00% bob_unique=24 full_match=0.73
+--------------------------------------------------------------------------------
+debug: 3 1 1 5 1 2 item0=0 item1=1 item2=1 item0=3 item1=0 item2=0
+debug: 3 2 1 4 1 0 item0=3 item1=0 item2=0 item0=0 item1=1 item2=1
+================================================================================
+
+================================================================================
+Alice : book=(count:2 value:3) hat=(count:1 value:2) ball=(count:2 value:1)
+Bob   : book=(count:2 value:2) hat=(count:1 value:4) ball=(count:2 value:1)
+--------------------------------------------------------------------------------
+Alice : i want the books and the hat <eos>
+Bob   : how about i get the hat and you take the rest ? <eos>
+Alice : sure <eos>
+Bob   : <selection>
+Alice : book=2 hat=0 ball=2
+Bob   : book=0 hat=1 ball=0
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 8 points
+Bob   : 4 points
+--------------------------------------------------------------------------------
+dialog_len=5.75 sent_len=6.70 agree=91.67% advantage=1.45 time=0.040s comb_rew=12.17 alice_rew=6.75 alice_sel=46.67% alice_unique=32 bob_rew=5.42 bob_sel=53.33% bob_unique=25 full_match=0.73
+--------------------------------------------------------------------------------
+debug: 2 3 1 2 2 1 item0=2 item1=0 item2=2 item0=0 item1=1 item2=0
+debug: 2 2 1 4 2 1 item0=0 item1=1 item2=0 item0=2 item1=0 item2=2
+================================================================================
+
+================================================================================
+Alice : book=(count:1 value:8) hat=(count:2 value:0) ball=(count:2 value:1)
+Bob   : book=(count:1 value:4) hat=(count:2 value:3) ball=(count:2 value:0)
+--------------------------------------------------------------------------------
+Bob   : i would like the book and the hats . <eos>
+Alice : you can have the hats but i need the book and the balls <eos>
+Bob   : that doesn't work for me . i need the book and one hat . <eos>
+Alice : i need both balls , you can have the rest <eos>
+Bob   : okay <eos>
+Alice : <selection>
+Alice : book=0 hat=0 ball=2
+Bob   : book=1 hat=2 ball=0
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 2 points
+Bob   : 10 points
+--------------------------------------------------------------------------------
+dialog_len=5.77 sent_len=6.85 agree=92.31% advantage=0.67 time=0.041s comb_rew=12.15 alice_rew=6.38 alice_sel=50.00% alice_unique=34 bob_rew=5.77 bob_sel=50.00% bob_unique=28 full_match=0.72
+--------------------------------------------------------------------------------
+debug: 1 8 2 0 2 1 item0=0 item1=0 item2=2 item0=1 item1=2 item2=0
+debug: 1 4 2 3 2 0 item0=1 item1=2 item2=0 item0=0 item1=0 item2=2
+================================================================================
+
+================================================================================
+Alice : book=(count:1 value:5) hat=(count:3 value:1) ball=(count:1 value:2)
+Bob   : book=(count:1 value:3) hat=(count:3 value:0) ball=(count:1 value:7)
+--------------------------------------------------------------------------------
+Alice : i want the book and ball <eos>
+Bob   : i need the ball and the book <eos>
+Alice : i can give you the ball and one hat <eos>
+Bob   : <selection>
+Alice : book=1 hat=2 ball=0
+Bob   : book=0 hat=1 ball=1
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 7 points
+Bob   : 7 points
+--------------------------------------------------------------------------------
+dialog_len=5.64 sent_len=6.84 agree=92.86% advantage=0.62 time=0.040s comb_rew=12.29 alice_rew=6.43 alice_sel=47.06% alice_unique=36 bob_rew=5.86 bob_sel=52.94% bob_unique=29 full_match=0.74
+--------------------------------------------------------------------------------
+debug: 1 5 3 1 1 2 item0=1 item1=2 item2=0 item0=0 item1=1 item2=1
+debug: 1 3 3 0 1 7 item0=0 item1=1 item2=1 item0=1 item1=2 item2=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:0) hat=(count:1 value:8) ball=(count:1 value:2)
+Bob   : book=(count:3 value:2) hat=(count:1 value:3) ball=(count:1 value:1)
+--------------------------------------------------------------------------------
+Bob   : i want the hat and books <eos>
+Alice : i need the hat and the ball <eos>
+Bob   : i need the hat and ball <eos>
+Alice : i need the hat and the ball <eos>
+Bob   : ok <eos>
+Alice : <selection>
+Alice : book=0 hat=1 ball=1
+Bob   : book=3 hat=0 ball=0
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 10 points
+Bob   : 6 points
+--------------------------------------------------------------------------------
+dialog_len=5.67 sent_len=6.75 agree=93.33% advantage=0.86 time=0.039s comb_rew=12.53 alice_rew=6.67 alice_sel=50.00% alice_unique=36 bob_rew=5.87 bob_sel=50.00% bob_unique=31 full_match=0.75
+--------------------------------------------------------------------------------
+debug: 3 0 1 8 1 2 item0=0 item1=1 item2=1 item0=3 item1=0 item2=0
+debug: 3 2 1 3 1 1 item0=3 item1=0 item2=0 item0=0 item1=1 item2=1
+================================================================================
+
+================================================================================
+Alice : book=(count:2 value:1) hat=(count:1 value:6) ball=(count:2 value:1)
+Bob   : book=(count:2 value:2) hat=(count:1 value:6) ball=(count:2 value:0)
+--------------------------------------------------------------------------------
+Alice : i would like the hat and the balls . <eos>
+Bob   : i would like the hat and the books <eos>
+Alice : i need the hat . you can have the rest <eos>
+Bob   : ok . <eos>
+Alice : <selection>
+Alice : book=0 hat=1 ball=0
+Bob   : book=2 hat=0 ball=2
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 6 points
+Bob   : 4 points
+--------------------------------------------------------------------------------
+dialog_len=5.62 sent_len=6.75 agree=93.75% advantage=0.93 time=0.039s comb_rew=12.38 alice_rew=6.62 alice_sel=52.63% alice_unique=38 bob_rew=5.75 bob_sel=47.37% bob_unique=33 full_match=0.75
+--------------------------------------------------------------------------------
+debug: 2 1 1 6 2 1 item0=0 item1=1 item2=0 item0=2 item1=0 item2=2
+debug: 2 2 1 6 2 0 item0=2 item1=0 item2=2 item0=0 item1=1 item2=0
+================================================================================
+
+================================================================================
+Alice : book=(count:2 value:1) hat=(count:1 value:8) ball=(count:2 value:0)
+Bob   : book=(count:2 value:3) hat=(count:1 value:2) ball=(count:2 value:1)
+--------------------------------------------------------------------------------
+Alice : i would like the hat and the balls . <eos>
+Bob   : i need the hat . you can have the rest . <eos>
+Alice : deal <eos>
+Bob   : <selection>
