@@ -58,8 +58,8 @@ def setup_new_user():
     data["error_description"] = "Server is not ready yet. Please wait for a few seconds and try again."
     return json.dumps(data)
 
-  # pick 10 random digits from 0 to 9 (both included) and join them as the randomId for the user
-  randomId = ''.join([str(random.randint(0, 9)) for _ in range(10)])
+  # pick 10 random digits from 1 to 9 (both included) and join them as the randomId for the user
+  randomId = ''.join([str(random.randint(1, 9)) for _ in range(10)])
 
   # pick a new model, cxt pair that is not in mod_cxt_used
   chosen_mod_cxt = None
