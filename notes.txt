@@ -5,4 +5,7 @@ then run selfplay to get the selfplay log
 
 then reinforce!
 
+selfish:
+python reinforce.py  --data data/negotiate --bsz 16 --clip 1 --context_file data/negotiate/selfplay.txt --eps 0.0 --gamma 0.95 --lr 0.5 --momentum 0.1 --nepoch 4 --nesterov --ref_text data/negotiate/train.txt --rl_clip 1 --rl_lr 0.2 --score_threshold 6 --sv_train_freq 4 --temperature 0.5 --alice_model logs/sv_model.pt --bob_model logs/rl_model_rw_utility_1_0_0_0.pt --rw_type utility --output_model_file logs/rl_model.pt --rw_type own_points
+
 
