@@ -365,13 +365,17 @@ class RlAgent(LstmAgent):
             rewards.insert(0, g)
             g = g * self.args.gamma
 
-        loss = 0
+        loss = 0 #torch.tensor([[0]])
         # estimate the loss using one MonteCarlo rollout
         for lp, r in zip(self.logprobs, rewards):
             loss -= lp * r * scale_rw
 
         self.opt.zero_grad()
-        loss.backward()
+        try:
+            loss.backward()
+        except Exception as e:
+            print(f"Loss:{loss}, Error:{e}")
+
         nn.utils.clip_grad_norm_(self.model.parameters(), self.args.rl_clip)
         if self.args.visual and self.t % 10 == 0:
             self.model_plot.update(self.t)
