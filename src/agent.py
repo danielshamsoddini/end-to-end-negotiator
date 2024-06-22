@@ -374,7 +374,10 @@ class RlAgent(LstmAgent):
         try:
             loss.backward()
         except Exception as e:
-            print(f"Loss:{loss}, Error:{e}")
+            error_message = f"Loss:{loss}, Error:{e}\n"
+            print(error_message)
+            with open('error.log', 'a') as log_file:
+                log_file.write(error_message)
 
         nn.utils.clip_grad_norm_(self.model.parameters(), self.args.rl_clip)
         if self.args.visual and self.t % 10 == 0:
