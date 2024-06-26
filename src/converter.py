@@ -11,12 +11,16 @@ chat_logs = []
 input_items = "abc"
 partner_input_items = "def"
 master_str = ""
+val2num = {'Low': 1, 'Medium': 2, 'High': 3}
+#item 0 will be firewood, item 1 will be food, item 2 will be water, alphanum order
+item2index = {'Firewood': 0,  'Food': 1, 'Water': 2}
 for row in df.iterrows():
     #print(row[1]['chat_logs'])
-    
+    # print(row[1])
+    # print(row[1]['participant_info'])
+
+    # break
     dialogue_str = ""
-    # input_str = f"<input> {input_items['Food']} {input_items['Water']} {input_items['Firewood']} 1 1 2 </input>"
-    # partner_input_str = f"<partner_input> {partner_input_items['Food']} {partner_input_items['Water']} {partner_input_items['Firewood']} 2 1 2 </partner_input>"
     for a in row[1]['chat_logs']:
         #print(a)
         id = "YOU" if a['id'] == 'mturk_agent_1' else "THEM"
@@ -25,9 +29,19 @@ for row in df.iterrows():
                 dialogue_str += f"{id}: <selection>"
         else:
             dialogue_str += f"{id}: {a['text']} <eos> "
-    master_str += f"<input> 1 </input> <dialogue> {dialogue_str} </dialogue> <output> 1 </output> <partner_input> 1 </partner_input>\n"
+
+    #each item has a total quantity of 3
+    input_arr = {row[1]["participant_info"]['mturk_agent_1']["value2issue"][k]:v for k,v in val2num.items()}
+    partner_arr = {row[1]["participant_info"]['mturk_agent_2']["value2issue"][k]:v for k,v in val2num.items()}
+    print(row[1]["participant_info"]['mturk_agent_1']["value2issue"])
+    print(row[1]["participant_info"]['mturk_agent_2']["value2issue"])
+    print(input_arr)
+    print(partner_arr)
+    master_str += f"<input> 3 {input_arr["Firewood"]} 3 {input_arr["Food"]} 3 {input_arr["Water"]} </input> <dialogue> {dialogue_str} </dialogue> <output> 1 </output> <partner_input> 3 {partner_arr["Firewood"]} 3 {partner_arr["Food"]} 3 {partner_arr["Water"]} </partner_input>\n"
     print(row[0])
-print(chat_logs)
+
+with open('data/casino/casino_convo.txt', 'w', encoding="utf-8") as log_file:
+    log_file.write(master_str)
 
 with open('casino_convo.txt', 'w', encoding="utf-8") as log_file:
     log_file.write(master_str)
