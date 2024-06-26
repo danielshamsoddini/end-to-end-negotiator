@@ -7,6 +7,12 @@ df = pd.read_csv(file_path)
 
 # Function to format each conversation
 def format_conversation(row):
+    chat_logs = []
+    for row in df.iterrows():
+        print(row[1]['chat_logs'])
+        chat_logs.append(row['chat_logs'])
+
+    print(chat_logs)
     chat_logs = json.loads(row['chat_logs'].replace("'", "\""))
     participant_info = json.loads(row['participant_info'].replace("'", "\""))
     
