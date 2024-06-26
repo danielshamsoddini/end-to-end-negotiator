@@ -1,6 +1,17 @@
 import pandas as pd
 import json
 from unidecode import unidecode
+import string
+import random
+import sys
+random.seed(int(sys.argv[1]))
+def add_space_around_punctuation(text):
+    punctuation = string.punctuation.replace("'", "").replace(":", "")
+    for char in punctuation:
+        text = text.replace(char, f" {char} ")
+    return ' '.join(text.split())
+
+
 # Load the CSV file
 file_path = 'casino_data.parquet'
 df = pd.read_parquet(file_path)
@@ -10,7 +21,7 @@ df = pd.read_parquet(file_path)
 chat_logs = []
 input_items = "abc"
 partner_input_items = "def"
-master_str = ""
+master_str = []
 val2num = {'Low': 1, 'Medium': 2, 'High': 3}
 #item 0 will be firewood, item 1 will be food, item 2 will be water, alphanum order
 item2index = {'Firewood': 0,  'Food': 1, 'Water': 2}
@@ -37,7 +48,7 @@ for row in df.iterrows():
             output = "<disagree> " * 6
             print(output)
         else:
-            dialogue_str += f"{id}: {unidecode(a['text'])} <eos> "
+            dialogue_str += f"{id}: {add_space_around_punctuation(unidecode(a['text']).lower())} <eos> "
 
     #each item has a total quantity of 3
     input_arr = {row[1]["participant_info"]['mturk_agent_1']["value2issue"][k]:v for k,v in val2num.items()}
@@ -46,25 +57,30 @@ for row in df.iterrows():
     # print(row[1]["participant_info"]['mturk_agent_2']["value2issue"])
     # print(input_arr)
     # print(partner_arr)
-    master_str += f"<input> 3 {input_arr["Firewood"]} 3 {input_arr["Food"]} 3 {input_arr["Water"]} </input> <dialogue> {dialogue_str} </dialogue> <output> {output}</output> <partner_input> 3 {partner_arr["Firewood"]} 3 {partner_arr["Food"]} 3 {partner_arr["Water"]} </partner_input>\n"
+    master_str.append(f"<input> 3 {input_arr["Firewood"]} 3 {input_arr["Food"]} 3 {input_arr["Water"]} </input> <dialogue> {dialogue_str} </dialogue> <output> {output}</output> <partner_input> 3 {partner_arr["Firewood"]} 3 {partner_arr["Food"]} 3 {partner_arr["Water"]} </partner_input>")
     print(row[0])
 
 #split the data into train, val, test
-master_str = master_str.split("\n")
-train = master_str[:int(len(master_str)*0.8)]
-val = master_str[int(len(master_str)*0.8):int(len(master_str)*0.9)]
-test = master_str[int(len(master_str)*0.9):]
+random.shuffle(master_str)
+dup_coeff = 2
+train = master_str[:int(len(master_str)*0.8)] * dup_coeff
+val = master_str[int(len(master_str)*0.8):int(len(master_str)*0.9)] * dup_coeff
+test = master_str[int(len(master_str)*0.9):] * dup_coeff
 xyz = "understand we do have to think about water being by far the most important thing in life since it bascially is right 🙂 and well how"
 print(xyz)
 print(unidecode(xyz))
-with open('data/casino/train.txt', 'w') as log_file:
-    log_file.write("\n".join(train))
+for a in range(1):
+    with open('data/casino/train.txt', 'w') as log_file:
+        for s in train:
+            log_file.write(s + "\n")
 
-with open('data/casino/val.txt', 'w') as log_file:
-    log_file.write("\n".join(val))
+    with open('data/casino/val.txt', 'w') as log_file:
+        for s in val:
+            log_file.write(s + "\n")
 
-with open('data/casino/test.txt', 'w') as log_file:
-    log_file.write("\n".join(test))
+    with open('data/casino/test.txt', 'w') as log_file:
+        for s in test:
+            log_file.write(s + "\n")
 
 
 with open('data/casino/casino_convo.txt', 'w') as log_file:
