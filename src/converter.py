@@ -6,44 +6,30 @@ file_path = 'casino_data.parquet'
 df = pd.read_parquet(file_path)
 
 # Function to format each conversation
-def format_conversation(row):
-    chat_logs = []
-    for row in df.iterrows():
-        #print(row[1]['chat_logs'])
-        for a in row[1]['chat_logs']:
-            #print(a)
-            print(a['text'])
-        chat_logs.append(row['chat_logs'])
 
-    print(chat_logs)
-    chat_logs = json.loads(row['chat_logs'].replace("'", "\""))
-    participant_info = json.loads(row['participant_info'].replace("'", "\""))
+chat_logs = []
+input_items = "abc"
+partner_input_items = "def"
+master_str = ""
+for row in df.iterrows():
+    #print(row[1]['chat_logs'])
     
-    input_items = participant_info['mturk_agent_1']['value2issue']
-    partner_input_items = participant_info['mturk_agent_2']['value2issue']
-    
-    input_str = f"<input> {input_items['Food']} {input_items['Water']} {input_items['Firewood']} 1 1 2 </input>"
-    partner_input_str = f"<partner_input> {partner_input_items['Food']} {partner_input_items['Water']} {partner_input_items['Firewood']} 2 1 2 </partner_input>"
-    
-    dialogue_str = "<dialogue> "
-    for message in chat_logs:
-        if message['speaker'] == 'YOU':
-            dialogue_str += f"YOU: {message['text']} <eos> "
+    dialogue_str = ""
+    # input_str = f"<input> {input_items['Food']} {input_items['Water']} {input_items['Firewood']} 1 1 2 </input>"
+    # partner_input_str = f"<partner_input> {partner_input_items['Food']} {partner_input_items['Water']} {partner_input_items['Firewood']} 2 1 2 </partner_input>"
+    for a in row[1]['chat_logs']:
+        #print(a)
+        id = "YOU" if a['id'] == 'mturk_agent_1' else "THEM"
+        if a['text'] == "Submit-Deal" or a['text'] == "Accept-Deal":
+            if "<selection>" not in dialogue_str:
+                dialogue_str += f"{id}: <selection>"
         else:
-            dialogue_str += f"THEM: {message['text']} <eos> "
-    dialogue_str += "THEM: <selection> </dialogue>"
-    
-    output_str = "<output> item0=1 item1=0 item2=1 item0=0 item1=4 item2=0 </output>"  # This needs to be dynamically created based on some logic
-    
-    formatted_conversation = f"{input_str} {dialogue_str} {output_str} {partner_input_str}"
-    
-    return formatted_conversation
+            dialogue_str += f"{id}: {a['text']} <eos> "
+    master_str += f"<input> 1 </input> <dialogue> {dialogue_str} </dialogue> <output> 1 </output> <partner_input> 1 </partner_input>\n"
+    print(row[0])
+print(chat_logs)
 
-# Apply the function to each row and create a new DataFrame with the formatted conversations
-df['formatted_conversation'] = df.apply(format_conversation, axis=1)
+with open('casino_convo.txt', 'w', encoding="utf-8") as log_file:
+    log_file.write(master_str)
 
-# Save the formatted conversations to a new CSV file
-output_file_path = 'formatted_output.csv'
-df.to_csv(output_file_path, index=False)
 
-output_file_path
