@@ -27,7 +27,10 @@ for row in df.iterrows():
         id = "YOU" if a['id'] == 'mturk_agent_1' else "THEM"
         if a['text'] == "Submit-Deal" or a['text'] == "Accept-Deal":
             if a['text'] == "Submit-Deal":
-                output = f"item0={} item1={} item2={} item0={} item1{} item2={}"
+                print(a['task_data'])
+                agent1out = a['task_data']['issue2youget'] if id == "YOU" else a['task_data']['issue2theyget']
+                agent2out =  a['task_data']['issue2youget'] if id == "THEM" else a['task_data']['issue2theyget']
+                output = f"item0={agent1out["Firewood"]} item1={agent1out["Food"]} item2={agent1out["Water"]} item0={agent2out["Firewood"]} item1={agent2out["Food"]} item2={agent2out["Water"]} "
             if "<selection>" not in dialogue_str:
                 dialogue_str += f"{id}: <selection>"
         elif a['text'] == 'Walk-Away':
@@ -46,10 +49,26 @@ for row in df.iterrows():
     master_str += f"<input> 3 {input_arr["Firewood"]} 3 {input_arr["Food"]} 3 {input_arr["Water"]} </input> <dialogue> {dialogue_str} </dialogue> <output> {output}</output> <partner_input> 3 {partner_arr["Firewood"]} 3 {partner_arr["Food"]} 3 {partner_arr["Water"]} </partner_input>\n"
     print(row[0])
 
+#split the data into train, val, test
+master_str = master_str.split("\n")
+train = master_str[:int(len(master_str)*0.8)]
+val = master_str[int(len(master_str)*0.8):int(len(master_str)*0.9)]
+test = master_str[int(len(master_str)*0.9):]
+
+with open('data/casino/train.txt', 'w', encoding="utf-8") as log_file:
+    log_file.write("\n".join(train))
+
+with open('data/casino/val.txt', 'w', encoding="utf-8") as log_file:
+    log_file.write("\n".join(val))
+
+with open('data/casino/test.txt', 'w', encoding="utf-8") as log_file:
+    log_file.write("\n".join(test))
+
+
 with open('data/casino/casino_convo.txt', 'w', encoding="utf-8") as log_file:
-    log_file.write(master_str)
+    log_file.write("\n".join(master_str))
 
 with open('casino_convo.txt', 'w', encoding="utf-8") as log_file:
-    log_file.write(master_str)
+    log_file.write("\n".join(master_str))
 
 
