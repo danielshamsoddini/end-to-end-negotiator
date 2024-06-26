@@ -2,14 +2,17 @@ import pandas as pd
 import json
 
 # Load the CSV file
-file_path = 'output.csv'
-df = pd.read_csv(file_path)
+file_path = 'casino_data.parquet'
+df = pd.read_parquet(file_path)
 
 # Function to format each conversation
 def format_conversation(row):
     chat_logs = []
     for row in df.iterrows():
-        print(row[1]['chat_logs'])
+        #print(row[1]['chat_logs'])
+        for a in row[1]['chat_logs']:
+            #print(a)
+            print(a['text'])
         chat_logs.append(row['chat_logs'])
 
     print(chat_logs)
