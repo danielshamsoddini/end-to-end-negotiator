@@ -1,6 +1,6 @@
 import pandas as pd
 import json
-
+from unidecode import unidecode
 # Load the CSV file
 file_path = 'casino_data.parquet'
 df = pd.read_parquet(file_path)
@@ -37,7 +37,7 @@ for row in df.iterrows():
             output = "<disagree> " * 6
             print(output)
         else:
-            dialogue_str += f"{id}: {a['text']} <eos> "
+            dialogue_str += f"{id}: {unidecode(a['text'])} <eos> "
 
     #each item has a total quantity of 3
     input_arr = {row[1]["participant_info"]['mturk_agent_1']["value2issue"][k]:v for k,v in val2num.items()}
@@ -54,21 +54,23 @@ master_str = master_str.split("\n")
 train = master_str[:int(len(master_str)*0.8)]
 val = master_str[int(len(master_str)*0.8):int(len(master_str)*0.9)]
 test = master_str[int(len(master_str)*0.9):]
-
-with open('data/casino/train.txt', 'w', encoding="utf-8") as log_file:
+xyz = "understand we do have to think about water being by far the most important thing in life since it bascially is right 🙂 and well how"
+print(xyz)
+print(unidecode(xyz))
+with open('data/casino/train.txt', 'w') as log_file:
     log_file.write("\n".join(train))
 
-with open('data/casino/val.txt', 'w', encoding="utf-8") as log_file:
+with open('data/casino/val.txt', 'w') as log_file:
     log_file.write("\n".join(val))
 
-with open('data/casino/test.txt', 'w', encoding="utf-8") as log_file:
+with open('data/casino/test.txt', 'w') as log_file:
     log_file.write("\n".join(test))
 
 
-with open('data/casino/casino_convo.txt', 'w', encoding="utf-8") as log_file:
+with open('data/casino/casino_convo.txt', 'w') as log_file:
     log_file.write("\n".join(master_str))
 
-with open('casino_convo.txt', 'w', encoding="utf-8") as log_file:
+with open('casino_convo.txt', 'w') as log_file:
     log_file.write("\n".join(master_str))
 
 
