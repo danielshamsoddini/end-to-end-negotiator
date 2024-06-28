@@ -59,8 +59,7 @@ class Reinforce(object):
         n = 0
         for ctxs in self.ctx_gen.iter(self.args.nepoch):
             n += 1
-            if not n % 10:
-                logging.info(f"Num: {n}")
+            
             # supervised update
             if self.args.sv_train_freq > 0 and n % self.args.sv_train_freq == 0:
                 self.engine.train_single(N, trainset)
@@ -78,6 +77,8 @@ class Reinforce(object):
 
             # reached here, meaning success; increment global counter.
             global_counter += 1
+        logging.info(f"Num: {n}")
+
 
         def dump_stats(dataset, stats, name):
             loss, select_loss = self.engine.valid_pass(N, dataset, stats)
@@ -251,7 +252,7 @@ def main():
             except RuntimeError:
                 print("runtime error caught !!!")
 
-            if global_counter >= 10000:
+            if global_counter >= 300:#changed cause of much smaller dataset
                 # atleast 10k iterations happened
                 
                 # reset the global counter

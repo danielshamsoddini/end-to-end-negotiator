@@ -11,16 +11,6 @@ then run selfplay to get the selfplay log
 python selfplay.py --alice_model_file logs/casino/sv_model.pt --bob_model_file logs/casino/sv_model.pt --context_file data/casino/selfplay.txt --temperature 0.5 --log_file casino_selfplay.log --ref_text data/casino/train.txt
 then reinforce!
 
+python reinforce.py  --data data/casino --bsz 16 --clip 1 --context_file data/casino/selfplay.txt --eps 0.0 --gamma 0.95 --lr 0.5 --momentum 0.1 --nepoch 4 --nesterov --ref_text data/casino/train.txt --rl_clip 1 --rl_lr 0.2 --score_threshold 6 --sv_train_freq 4 --temperature 0.5 --alice_model logs/casino/sv_model.pt --bob_model logs/casino/sv_model.pt --rw_type utility --output_model_file logs/casino/rl_model.pt
 
-Testing for casino:
-
-
-
-
-
-OLD DND:
-
-python reinforce.py  --data data/negotiate --bsz 16 --clip 1 --context_file data/negotiate/selfplay.txt --eps 0.0 --gamma 0.95 --lr 0.5 --momentum 0.1 --nepoch 4 --nesterov --ref_text data/negotiate/train.txt --rl_clip 1 --rl_lr 0.2 --score_threshold 6 --sv_train_freq 4 --temperature 0.5 --alice_model logs/sv_model.pt --bob_model logs/rl_model_rw_utility_1_0_0_0.pt --rw_type utility --output_model_file logs/rl_model.pt --rw_type own_points
-
-
-python train.py  --data data/negotiate --bsz 8  --clip 0.5  --decay_every 1  --decay_rate 5.0  --dropout 0.5  --init_range 0.1  --lr 1  --max_epoch 30  --min_lr 0.01  --momentum 0.1  --nembed_ctx 192  --nembed_word 768  --nesterov  --nhid_attn 768  --nhid_ctx 198  --nhid_lang 381  --nhid_sel 768  --nhid_strat 381  --sel_weight 0.5  --model_file logs/casino/sv_model.pt
+python reinforce_generic.py  --data data/casino --bsz 16 --clip 1 --context_file data/casino/selfplay.txt --eps 0.0 --gamma 0.95 --lr 0.5 --momentum 0.1 --nesterov --ref_text data/casino/train.txt --rl_clip 1 --rl_lr 0.2 --score_threshold 6 --sv_train_freq 4 --temperature 0.5 --rw_type utility --output_model_file logs/casino/rl_model.pt --policy_model logs/casino/sv_model.pt --opp_models logs/casino/sv_model.pt,logs/casino/rl_model_rw_utility_1_0_0_0.pt,logs/casino/rl_model_rw_utility_1_0_-0.75_-0.75.pt --nepoch_per_opp 1 --num_opp_used 9

@@ -245,7 +245,7 @@ def main():
                 except RuntimeError:
                     print("runtime error caught !!!")
 
-                if global_counter >= 2500*args.nepoch_per_opp:
+                if global_counter >= args.nepoch_per_opp:
                     # atleast some significant iterations happened properly
                     
                     # reset the global counter
