@@ -20,10 +20,15 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(filename)s : %(messa
 
 class DialogLogger(object):
     """Logger for a dialogue."""
+    # CODE2ITEM = [
+    #     ('item0', 'book'),
+    #     ('item1', 'hat'),
+    #     ('item2', 'ball'),
+    # ]
     CODE2ITEM = [
-        ('item0', 'book'),
-        ('item1', 'hat'),
-        ('item2', 'ball'),
+        ('item0', 'Firewood'),
+        ('item1', 'Food'),
+        ('item2', 'Water'),
     ]
 
     def __init__(self, verbose=False, log_file=None, append=False):
@@ -255,6 +260,7 @@ class Dialog(object):
                 storage["agreement_status"] = "no_agreement_wa" #the choices match and end in a disagreement.
         else:
             # there is agreement
+            print("Agreement")
             storage["agreement_status"] = "agreement" # choices match and are numbers.
         
         for agent, reward in zip(self.agents, rewards):
