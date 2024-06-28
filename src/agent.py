@@ -151,7 +151,13 @@ class LstmAgent(Agent):
         choices_logits = []
         for i in range(self.domain.selection_length()):
             idxs = [self.model.item_dict.get_idx(c[i]) for c in choices]
-            idxs = Variable(torch.from_numpy(np.array(idxs, dtype = "int64")))
+            try:
+                idxs = Variable(torch.from_numpy(np.array([i for i in idxs if i is not None])).long())
+            except:
+                print("Error in idxs")
+                print(idxs)
+                print(choices)
+                sys.exit()
             idxs = self.model.to_device(idxs)
             choices_logits.append(torch.gather(logits[i], 0, idxs).unsqueeze(1))
 

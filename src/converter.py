@@ -5,7 +5,16 @@ import string
 import random
 import sys
 random.seed(int(sys.argv[1]))
-stopwords = set(['the', 'and', 'to', 'of', 'a', 'in', 'that', 'is', 'was', 'he', 'for', 'it', 'with', 'as', 'his', 'on', 'be', 'at', 'by', 'i', 'this', 'had', 'not', 'are', 'but', 'from', 'or', 'have', 'an', 'they', 'which', 'one', 'you', 'were', 'her', 'all', 'she', 'there', 'would', 'their', 'we', 'him', 'been', 'has', 'when', 'who', 'will', 'more', 'no', 'if', 'out', 'so', 'said', 'what', 'up', 'its', 'about', 'into', 'than'])
+stopwords = set([
+    'the', 'and', 'to', 'of', 'a', 'in', 'that', 'is', 'was', 'he', 'it', 'with', 'as', 'his', 'on', 'be', 
+    'at', 'by', 'this', 'had', 'not', 'are', 'but', 'from', 'or', 'have', 'an', 'they', 'which', 'one', 
+    'were', 'her', 'all', 'she', 'there', 'would', 'their', 'him', 'been', 'has', 'when', 'who', 'will', 'more', 
+    'no', 'if', 'out', 'so', 'said', 'what', 'up', 'its', 'about', 'into', 'than', 'can', 'only', 'other', 'new', 
+    'some', 'could', 'time', 'these', 'may', 'first', 'then', 'do', 'my', 'now', 'such', 'like', 'over', 
+    'me', 'even', 'made', 'after', 'also', 'did', 'many', 'before', 'must', 'through', 'back', 'years', 
+    'where', 'much', 'way', 'well', 'down', 'should', 'because', 'each', 'people'
+])
+
 def add_space_around_punctuation(text):
     punctuation = string.punctuation.replace("'", "").replace(":", "")
     for char in punctuation:
@@ -53,11 +62,11 @@ for row in df.iterrows():
                 dialogue_str += f"{id}: <selection>"
                 invert_dialogue_str += f"{invert_id}: <selection>"
         elif a['text'] == 'Walk-Away':
-            output = "<no_agreement> " * 6
+            output = "<disagree> " * 6
             print(output)
         else:
-            dialogue_str += f"{id}: {stopword_remover(add_space_around_punctuation(unidecode(a['text']).lower()))} <eos> "
-            invert_dialogue_str += f"{invert_id}: {stopword_remover(add_space_around_punctuation(unidecode(a['text']).lower()))} <eos> "
+            dialogue_str += f"{id}: {add_space_around_punctuation(unidecode(a['text']).lower())} <eos> "
+            invert_dialogue_str += f"{invert_id}: {add_space_around_punctuation(unidecode(a['text']).lower())} <eos> "
 
     #each item has a total quantity of 3
     input_arr = {row[1]["participant_info"]['mturk_agent_1']["value2issue"][k]:v for k,v in val2num.items()}
@@ -67,8 +76,8 @@ for row in df.iterrows():
     # print(input_arr)
     # print(partner_arr)
     item_quant = [3 for i in range(3)]
-    currline = f"<input> {item_quant[0]} {input_arr["Firewood"]} {item_quant[1]} {input_arr["Food"]} {item_quant[2]} {input_arr["Water"]} </input> <dialogue> {dialogue_str[:1000]} </dialogue> <output> {output}</output> <partner_input> 3 {partner_arr["Firewood"]} 3 {partner_arr["Food"]} 3 {partner_arr["Water"]} </partner_input>"
-    currline_invert = f"<input> {item_quant[0]} {partner_arr["Firewood"]} {item_quant[1]} {partner_arr["Food"]} {item_quant[2]} {partner_arr["Water"]} </input> <dialogue> {invert_dialogue_str[:1000]} </dialogue> <output> {invert_output}</output> <partner_input> 3 {input_arr["Firewood"]} 3 {input_arr["Food"]} 3 {input_arr["Water"]} </partner_input>"
+    currline = f"<input> {item_quant[0]} {input_arr["Firewood"]} {item_quant[1]} {input_arr["Food"]} {item_quant[2]} {input_arr["Water"]} </input> <dialogue> {dialogue_str} </dialogue> <output> {output}</output> <partner_input> 3 {partner_arr["Firewood"]} 3 {partner_arr["Food"]} 3 {partner_arr["Water"]} </partner_input>"
+    currline_invert = f"<input> {item_quant[0]} {partner_arr["Firewood"]} {item_quant[1]} {partner_arr["Food"]} {item_quant[2]} {partner_arr["Water"]} </input> <dialogue> {invert_dialogue_str} </dialogue> <output> {invert_output}</output> <partner_input> 3 {input_arr["Firewood"]} 3 {input_arr["Food"]} 3 {input_arr["Water"]} </partner_input>"
     master_str.append((currline,currline_invert))
     print(row[0])
 
@@ -108,9 +117,12 @@ with open('data/casino/casino_convo.txt', 'w') as log_file:
         log_file.write(b + "\n")
 
 with open('casino_convo.txt', 'w') as log_file:
-    for s in master_str:
-        a,b = s
+    for i, s in enumerate(master_str):
+        a, b = s
         log_file.write(a + "\n")
-        log_file.write(b + "\n")
+        if i == len(master_str) - 1:
+            log_file.write(b)
+        else:
+            log_file.write(b + "\n")
 
 

@@ -1,0 +1,642 @@
+================================================================================
+Alice : book=(count:3 value:9) hat=(count:3 value:3) ball=(count:3 value:6)
+Bob   : book=(count:3 value:3) hat=(count:3 value:6) ball=(count:3 value:9)
+--------------------------------------------------------------------------------
+Alice : hello . i am good . <eos>
+Bob   : <selection>
+Alice : book=3 hat=0 ball=2
+Bob   : book=0 hat=3 ball=3
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:6) hat=(count:3 value:3) ball=(count:3 value:9)
+Bob   : book=(count:3 value:9) hat=(count:3 value:3) ball=(count:3 value:6)
+--------------------------------------------------------------------------------
+Bob   : hi <eos>
+Alice : hello ! how you ? <eos>
+Bob   : i am good i am going camping trip . <eos>
+Alice : i am looking forward camping trip ! <eos>
+Bob   : <selection>
+Alice : book=3 hat=0 ball=3
+Bob   : book=3 hat=0 ball=3
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:9) hat=(count:3 value:6) ball=(count:3 value:3)
+Bob   : book=(count:3 value:9) hat=(count:3 value:6) ball=(count:3 value:3)
+--------------------------------------------------------------------------------
+Alice : hi , i am going camping trip . <eos>
+Bob   : yeah i need extra firewood . i am need extra food . <eos>
+Alice : , i think you need food . i give you 2 food , 1 water for 2 waters . <eos>
+Bob   : sorry , i give you 3 food 2 water , 1 food 1 food 1 water ? <eos>
+Alice : i think how you get 2 firewood , 1 food , 2 firewood ? <eos>
+Bob   : i get 2 food 1 firewood . you think ? <eos>
+Alice : <selection>
+Alice : book=2 hat=2 ball=1
+Bob   : book=2 hat=2 ball=1
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:3) hat=(count:3 value:9) ball=(count:3 value:6)
+Bob   : book=(count:3 value:6) hat=(count:3 value:9) ball=(count:3 value:3)
+--------------------------------------------------------------------------------
+Alice : hello , how you ? <eos>
+Bob   : great ! i'm excited today , i am doing going camping trip . <eos>
+Alice : too . <eos>
+Bob   : <selection>
+Alice : book=0 hat=3 ball=3
+Bob   : book=3 hat=3 ball=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:9) hat=(count:3 value:6) ball=(count:3 value:3)
+Bob   : book=(count:3 value:3) hat=(count:3 value:9) ball=(count:3 value:6)
+--------------------------------------------------------------------------------
+Alice : hi . you excited for camping trip ? <eos>
+Bob   : i am willing go camping trip . <eos>
+Alice : hello , i get 2 waters , 2 water 2 water , 2 food 1 firewood ? <eos>
+Bob   : sounds good . <eos>
+Alice : you fine . i give you 2 firewood . you get 2 food , 1 water , 2 food ? <eos>
+Bob   : i think i need firewood . how you take 2 firewood . you get 2 waters , 1 food 1 water ? <eos>
+Alice : i am willing give you 1 food 3 firewood . <eos>
+Bob   : i give you 3 firewood , 1 food , 2 firewood , 2 firewood 1 food ? <eos>
+Alice : i think you give you 2 firewood , 1 water , 1 food ? <eos>
+Bob   : i think i want food 3 water . you give you 2 firewood , 1 water , 1 food , 1 water ? <eos>
+Alice : i don't get 2 food , 2 firewood , 1 water , 1 water 1 food . <eos>
+Bob   : i get 2 firewood 2 food . <eos>
+Alice : ok , i get 2 food , 2 firewood , 1 water , 1 food , 1 food 2 firewood ? <eos>
+Bob   : i think we work for . i don't get 3 food , 1 water 1 food , 1 firewood 2 food ? <eos>
+Alice : i am willing give you 3 food , 2 water , 1 firewood , 1 water , 2 food ? <eos>
+Bob   : i am good . how you ? <eos>
+Alice : i am looking good . <eos>
+Bob   : <selection>
+Alice : book=2 hat=1 ball=1
+Bob   : book=1 hat=2 ball=1
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:3) hat=(count:3 value:6) ball=(count:3 value:9)
+Bob   : book=(count:3 value:6) hat=(count:3 value:9) ball=(count:3 value:3)
+--------------------------------------------------------------------------------
+Alice : hello <eos>
+Bob   : i am excited . <eos>
+Alice : i am doing you . <eos>
+Bob   : i'm going . i am looking forward camping trip . <eos>
+Alice : i am good . you want most for weekend <eos>
+Bob   : i am excited camping trip . <eos>
+Alice : i am willing give water i get 2 waters , 1 food , 2 food , 1 firewood ? <eos>
+Bob   : i get 2 food , 1 water . <eos>
+Alice : ok , i need water . i get 2 food , 1 water , 1 firewood , 2 firewood <eos>
+Bob   : you take 3 food , 1 food , i take 2 food , 1 water , 3 food 1 firewood ? <eos>
+Alice : i think i give you 2 waters 2 firewood . you take 1 food ? <eos>
+Bob   : i need extra food , i give you two packages food . <eos>
+Alice : i get 2 firewood , 2 waters , 1 food . <eos>
+Bob   : i think you take two firewood , 2 water . you take 2 food ? <eos>
+Alice : ok , i get 1 water , 1 firewood , 1 food 1 food ? <eos>
+Bob   : ok , i think fair deal <eos>
+Alice : <selection>
+Alice : book=1 hat=2 ball=2
+Bob   : book=1 hat=2 ball=1
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:6) hat=(count:3 value:9) ball=(count:3 value:3)
+Bob   : book=(count:3 value:3) hat=(count:3 value:6) ball=(count:3 value:9)
+--------------------------------------------------------------------------------
+Alice : hello . how you ? <eos>
+Bob   : i am excited camping trip ! <eos>
+Alice : <selection>
+Alice : book=3 hat=3 ball=0
+Bob   : book=0 hat=0 ball=3
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 45 points
+Bob   : 27 points
+--------------------------------------------------------------------------------
+dialog_len=3.00 sent_len=10.91 agree=100.00% advantage=18.00 time=0.042s comb_rew=72.00 alice_rew=45.00 alice_sel=42.86% alice_unique=27 bob_rew=27.00 bob_sel=57.14% bob_unique=24 full_match=0.23
+--------------------------------------------------------------------------------
+debug: 3 6 3 9 3 3 item0=3 item1=3 item2=0 item0=0 item1=0 item2=3
+debug: 3 3 3 6 3 9 item0=0 item1=0 item2=3 item0=3 item1=3 item2=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:3) hat=(count:3 value:9) ball=(count:3 value:6)
+Bob   : book=(count:3 value:3) hat=(count:3 value:9) ball=(count:3 value:6)
+--------------------------------------------------------------------------------
+Alice : hello . i hope you most ? <eos>
+Bob   : i am good ! i need firewood most important . <eos>
+Alice : i am hoping you food for you . <eos>
+Bob   : i think i don't need food . i need two food . <eos>
+Alice : i need water i need food . <eos>
+Bob   : i think i need firewood . i need firewood . i give you 3 packages food , 1 water ? <eos>
+Alice : i think i get 1 food , 3 firewood , 3 water , 1 water . <eos>
+Bob   : i take 2 food , 1 water , 1 firewood 2 water . i get 2 firewood , 1 food <eos>
+Alice : i get 2 water 1 food . you get 1 water , 2 food , 2 food . <eos>
+Bob   : okay , i need extra water , i need water . <eos>
+Alice : i understand , i am afraid we work for . <eos>
+Bob   : i need firewood for food . <eos>
+Alice : i need water . i take 2 firewood , 1 food 1 water . <eos>
+Bob   : i give you 2 food , 2 firewood for you 3 firewood ? <eos>
+Alice : i need water food , i am take 2 food , 2 water 1 water . <eos>
+Bob   : sounds fair . <eos>
+Alice : <selection>
+Alice : book=1 hat=2 ball=1
+Bob   : book=1 hat=2 ball=1
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:9) hat=(count:3 value:3) ball=(count:3 value:6)
+Bob   : book=(count:3 value:6) hat=(count:3 value:3) ball=(count:3 value:9)
+--------------------------------------------------------------------------------
+Alice : hello , i am excited for camping trip . how you ? <eos>
+Bob   : i am going going camping trip ! i am doing excited ! <eos>
+Alice : i love camping trip , i'm going camping trip . <eos>
+Bob   : ok , i am excited camping ! <eos>
+Alice : i am really need water . i get 2 firewood , 2 firewood , 1 food , 1 water <eos>
+Bob   : sounds good . i need water firewood . i need food . <eos>
+Alice : i really need firewood . i am willing give you 2 food 1 firewood , 1 water . <eos>
+Bob   : i need firewood , i need food , i don't need firewood . <eos>
+Alice : i don't need water . i willing give you 2 firewood . you think we share ? <eos>
+Bob   : i am looking - deal . <eos>
+Alice : <selection>
+Alice : book=2 hat=1 ball=2
+Bob   : book=1 hat=1 ball=2
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:9) hat=(count:3 value:3) ball=(count:3 value:6)
+Bob   : book=(count:3 value:3) hat=(count:3 value:9) ball=(count:3 value:6)
+--------------------------------------------------------------------------------
+Bob   : hello , i am excited camping trip ! you need most ? <eos>
+Alice : i am excited camping trip . i am really need food , i am willing need water . i need extra water . <eos>
+Bob   : i understand i give you 2 firewood , 2 water 2 food 1 water <eos>
+Alice : sounds good . <eos>
+Bob   : <selection>
+Alice : book=2 hat=1 ball=2
+Bob   : book=1 hat=2 ball=1
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 33 points
+Bob   : 27 points
+--------------------------------------------------------------------------------
+dialog_len=4.00 sent_len=11.38 agree=100.00% advantage=12.00 time=0.095s comb_rew=66.00 alice_rew=39.00 alice_sel=50.00% alice_unique=42 bob_rew=27.00 bob_sel=50.00% bob_unique=39 full_match=0.19
+--------------------------------------------------------------------------------
+debug: 3 9 3 3 3 6 item0=2 item1=1 item2=2 item0=1 item1=2 item2=1
+debug: 3 3 3 9 3 6 item0=1 item1=2 item2=1 item0=2 item1=1 item2=2
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:6) hat=(count:3 value:9) ball=(count:3 value:3)
+Bob   : book=(count:3 value:6) hat=(count:3 value:9) ball=(count:3 value:3)
+--------------------------------------------------------------------------------
+Alice : hello , how you ? <eos>
+Bob   : i am doing good forward camping trip camp <eos>
+Alice : how you ? <eos>
+Bob   : i am pretty we looking forward camping trip . <eos>
+Alice : hi ! how you today ? <eos>
+Bob   : i am good . i am going camping trip ! <eos>
+Alice : i am doing good . <eos>
+Bob   : <selection>
+Alice : book=3 hat=3 ball=0
+Bob   : book=3 hat=3 ball=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:6) hat=(count:3 value:3) ball=(count:3 value:9)
+Bob   : book=(count:3 value:3) hat=(count:3 value:6) ball=(count:3 value:9)
+--------------------------------------------------------------------------------
+Bob   : hello , i am excited camping trip trip . <eos>
+Alice : <selection>
+Alice : book=3 hat=0 ball=3
+Bob   : book=0 hat=3 ball=3
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:3) hat=(count:3 value:9) ball=(count:3 value:6)
+Bob   : book=(count:3 value:6) hat=(count:3 value:3) ball=(count:3 value:9)
+--------------------------------------------------------------------------------
+Alice : hello , i am doing camping trip ! how i need extra food most <eos>
+Bob   : i need extra water , i get 2 water 1 food , 2 food , 1 water , 1 food . <eos>
+Alice : you take 1 food , 2 water 2 water ? <eos>
+Bob   : i think i think we deal . <eos>
+Alice : i think we deal . <eos>
+Bob   : <selection>
+Alice : book=1 hat=2 ball=1
+Bob   : book=2 hat=1 ball=2
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 27 points
+Bob   : 33 points
+--------------------------------------------------------------------------------
+dialog_len=4.67 sent_len=10.87 agree=100.00% advantage=6.00 time=0.117s comb_rew=64.00 alice_rew=35.00 alice_sel=46.15% alice_unique=48 bob_rew=29.00 bob_sel=53.85% bob_unique=45 full_match=0.21
+--------------------------------------------------------------------------------
+debug: 3 3 3 9 3 6 item0=1 item1=2 item2=1 item0=2 item1=1 item2=2
+debug: 3 6 3 3 3 9 item0=2 item1=1 item2=2 item0=1 item1=2 item2=1
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:3) hat=(count:3 value:9) ball=(count:3 value:6)
+Bob   : book=(count:3 value:9) hat=(count:3 value:3) ball=(count:3 value:6)
+--------------------------------------------------------------------------------
+Bob   : hello , how you ? <eos>
+Alice : i am good . i am excited forward camping trip . <eos>
+Bob   : <selection>
+Alice : book=0 hat=3 ball=0
+Bob   : book=3 hat=0 ball=3
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 27 points
+Bob   : 45 points
+--------------------------------------------------------------------------------
+dialog_len=4.25 sent_len=10.74 agree=100.00% advantage=0.00 time=0.100s comb_rew=66.00 alice_rew=33.00 alice_sel=42.86% alice_unique=49 bob_rew=33.00 bob_sel=57.14% bob_unique=46 full_match=0.22
+--------------------------------------------------------------------------------
+debug: 3 3 3 9 3 6 item0=0 item1=3 item2=0 item0=3 item1=0 item2=3
+debug: 3 9 3 3 3 6 item0=3 item1=0 item2=3 item0=0 item1=3 item2=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:9) hat=(count:3 value:6) ball=(count:3 value:3)
+Bob   : book=(count:3 value:9) hat=(count:3 value:3) ball=(count:3 value:6)
+--------------------------------------------------------------------------------
+Alice : hello ! <eos>
+Bob   : hi ! <eos>
+Alice : thanks ! <eos>
+Bob   : <selection>
+Alice : book=3 hat=3 ball=0
+Bob   : book=3 hat=0 ball=3
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:3) hat=(count:3 value:6) ball=(count:3 value:9)
+Bob   : book=(count:3 value:9) hat=(count:3 value:6) ball=(count:3 value:3)
+--------------------------------------------------------------------------------
+Bob   : hello . how you ? <eos>
+Alice : i'm looking for camping trip ! <eos>
+Bob   : <selection>
+Alice : book=0 hat=3 ball=3
+Bob   : book=3 hat=3 ball=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:6) hat=(count:3 value:9) ball=(count:3 value:3)
+Bob   : book=(count:3 value:9) hat=(count:3 value:3) ball=(count:3 value:6)
+--------------------------------------------------------------------------------
+Alice : hello , i am totally ! i am going excited for camping trip . <eos>
+Bob   : i am doing . i hope you mind you for camping ? <eos>
+Alice : i am good . how you ? <eos>
+Bob   : i am need . i need water . <eos>
+Alice : yes , we need water . <eos>
+Bob   : i am willing give you 2 firewood , 3 water , 3 food , 1 water , 2 water , 2 firewood , 1 firewood , 2 firewood <eos>
+Alice : okay , i get 2 water packages food , 2 firewood , 2 food 1 water 1 firewood ? <eos>
+Bob   : sounds good . you want i get 2 water , 1 food , 1 firewood , 1 ? <eos>
+Alice : i get 1 firewood , 2 food , 2 firewood , 1 water , 1 water , 1 water , 1 food , 1 water ? <eos>
+Bob   : i am going camping . i am willing give you water . i give you 2 food 3 firewood ? <eos>
+Alice : i get 2 firewood 1 water . <eos>
+Bob   : i think i get 3 firewood , 1 food . <eos>
+Alice : i think we deal . <eos>
+Bob   : great ! <eos>
+Alice : i need firewood . <eos>
+Bob   : i really need firewood . i firewood . i need food most . <eos>
+Alice : i understand i take extra firewood , i need . i am very i need water . i don't need firewood , i am willing give you 3 packages food , i need 3 water , 1 firewood , i take 2 food , 1 firewood , 1 food ? <eos>
+Bob   : i give you 2 firewood , 1 firewood , 1 water , 2 firewood , 1 firewood ? <eos>
+Alice : i think i get 2 food , 2 water , 1 food 2 food , 1 firewood <eos>
+Bob   : sounds fair . i'd give you 2 food ? <eos>
+--------------------------------------------------------------------------------
+Disagreement?!
+Alice : 0 (potential 0)
+Bob   : 0 (potential 0)
+--------------------------------------------------------------------------------
+dialog_len=7.40 sent_len=11.09 agree=80.00% advantage=0.00 time=0.169s comb_rew=52.80 alice_rew=26.40 alice_sel=37.50% alice_unique=61 bob_rew=26.40 bob_sel=62.50% bob_unique=58 full_match=0.23
+--------------------------------------------------------------------------------
+debug: 3 6 3 9 3 3 <no_agreement> <no_agreement> <no_agreement>
+debug: 3 9 3 3 3 6 <no_agreement> <no_agreement> <no_agreement>
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:9) hat=(count:3 value:3) ball=(count:3 value:6)
+Bob   : book=(count:3 value:6) hat=(count:3 value:9) ball=(count:3 value:3)
+--------------------------------------------------------------------------------
+Bob   : hi . i am doing forward for camping trip . <eos>
+Alice : i am excited camping trip ! i'm really going camping trip . i am going camping trip ! <eos>
+Bob   : hello . <eos>
+Alice : hi ! i am excited camping camping trip ! <eos>
+Bob   : <selection>
+Alice : book=3 hat=0 ball=3
+Bob   : book=3 hat=3 ball=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:6) hat=(count:3 value:3) ball=(count:3 value:9)
+Bob   : book=(count:3 value:3) hat=(count:3 value:9) ball=(count:3 value:6)
+--------------------------------------------------------------------------------
+Alice : how you ? <eos>
+Bob   : i am looking forward . <eos>
+Alice : i am good camping . i am looking forward trip . i am going camping trip ! <eos>
+Bob   : i'm sure we both camp . how you ? <eos>
+Alice : i'm good ! <eos>
+Bob   : <selection>
+Alice : book=3 hat=0 ball=3
+Bob   : book=0 hat=3 ball=0
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 45 points
+Bob   : 27 points
+--------------------------------------------------------------------------------
+dialog_len=7.17 sent_len=10.85 agree=83.33% advantage=3.60 time=0.163s comb_rew=56.00 alice_rew=29.50 alice_sel=33.33% alice_unique=65 bob_rew=26.50 bob_sel=66.67% bob_unique=62 full_match=0.24
+--------------------------------------------------------------------------------
+debug: 3 6 3 3 3 9 item0=3 item1=0 item2=3 item0=0 item1=3 item2=0
+debug: 3 3 3 9 3 6 item0=0 item1=3 item2=0 item0=3 item1=0 item2=3
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:6) hat=(count:3 value:9) ball=(count:3 value:3)
+Bob   : book=(count:3 value:3) hat=(count:3 value:9) ball=(count:3 value:6)
+--------------------------------------------------------------------------------
+Alice : hi ! i am going camping ! i'm going going camping trip , i am going camping trip ? <eos>
+Bob   : that's going ! i am excited camping trip ! <eos>
+Alice : i'm looking forward camping trip , i need extra food . <eos>
+Bob   : i need water food too . <eos>
+Alice : i think i need food for . <eos>
+Bob   : i am good . <eos>
+Alice : i agree you get 2 food , 1 firewood , 1 water ? <eos>
+Bob   : i need food water . <eos>
+Alice : i agree i don't need food too . i am willing give you 2 firewood , 2 food , 1 firewood , 2 food <eos>
+Bob   : ok , i get 2 packages firewood , 1 firewood 2 food ? <eos>
+Alice : i need water . i take 2 food . you get 3 packages firewood , i get 2 food , 2 firewood , 1 food <eos>
+Bob   : i give you 2 food . you take 1 food , 1 food water <eos>
+Alice : i get 1 firewood . i take 1 food 1 water , 1 food ? <eos>
+Bob   : i think we really need firewood . <eos>
+Alice : i need extra firewood , i get 2 food , 2 water . <eos>
+Bob   : i think i take 3 food 1 firewood , 2 water , 1 water , 2 water ? <eos>
+Alice : i think fair deal <eos>
+Bob   : i am hoping you give you 2 food , 1 water . <eos>
+Alice : how you take 2 food , 1 water , 1 food ? <eos>
+Bob   : i need 2 water i give you 2 water <eos>
+--------------------------------------------------------------------------------
+Disagreement?!
+Alice : 0 (potential 0)
+Bob   : 0 (potential 0)
+--------------------------------------------------------------------------------
+dialog_len=9.00 sent_len=11.11 agree=71.43% advantage=3.60 time=0.193s comb_rew=48.00 alice_rew=25.29 alice_sel=33.33% alice_unique=75 bob_rew=22.71 bob_sel=66.67% bob_unique=72 full_match=0.21
+--------------------------------------------------------------------------------
+debug: 3 6 3 9 3 3 <no_agreement> <no_agreement> <no_agreement>
+debug: 3 3 3 9 3 6 <no_agreement> <no_agreement> <no_agreement>
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:3) hat=(count:3 value:6) ball=(count:3 value:9)
+Bob   : book=(count:3 value:3) hat=(count:3 value:6) ball=(count:3 value:9)
+--------------------------------------------------------------------------------
+Bob   : hi , i need water water . i am sure i am need for food . . i think we need extra food . <eos>
+Alice : i need water , i get 2 food , i get 1 water . <eos>
+Bob   : i am sorry . how you take 2 water , 1 water , 1 food , 2 water , 1 firewood , 1 water 1 water , 1 food , 1 water , 1 water , 1 food , 1 food , 1 firewood . <eos>
+Alice : ok , i get 3 firewood , 1 water , 2 food ? <eos>
+Bob   : that's good . i get 1 food , 1 firewood . <eos>
+Alice : i take 3 waters , 1 food for you get 1 firewood , 2 food , 1 water ? <eos>
+Bob   : i am good getting 1 food for water . <eos>
+Alice : sounds good . i really need food . i need extra firewood . i need water , i take 3 waters , i get 2 firewood , 2 firewood , 1 food , 2 food , 1 water . <eos>
+Bob   : ok . <eos>
+Alice : ok , you take 2 food , 2 water , 1 water . you take 2 firewood 3 water ? <eos>
+Bob   : i think we need food . <eos>
+Alice : okay , i think i get 2 firewood , 1 food , 2 water . <eos>
+Bob   : <selection>
+Alice : book=1 hat=1 ball=2
+Bob   : book=1 hat=1 ball=2
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:6) hat=(count:3 value:3) ball=(count:3 value:9)
+Bob   : book=(count:3 value:6) hat=(count:3 value:3) ball=(count:3 value:9)
+--------------------------------------------------------------------------------
+Bob   : hi ! how you ? <eos>
+Alice : yes , i'm excited going camping trip ? <eos>
+Bob   : i am going camping trip . <eos>
+Alice : i am need extra water . how you ? <eos>
+Bob   : i am need extra water too . <eos>
+Alice : i am worried water i need extra water . i need extra food . <eos>
+Bob   : i need food . i go drink water . i am willing give your water , i get 3 food , i get 2 food , you take 1 water . <eos>
+Alice : i think fair deal <eos>
+Bob   : <selection>
+Alice : book=2 hat=0 ball=3
+Bob   : book=2 hat=0 ball=3
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:3) hat=(count:3 value:6) ball=(count:3 value:9)
+Bob   : book=(count:3 value:9) hat=(count:3 value:3) ball=(count:3 value:6)
+--------------------------------------------------------------------------------
+Alice : hello , how you ? <eos>
+Bob   : i am excited . you need most water ? <eos>
+Alice : i am pretty really need extra night . i need extra extra water . <eos>
+Bob   : i need water . i need least two food . i give you 3 water . <eos>
+Alice : sounds good . i am sorry , i really need water . i don't need food . i don't need food . you take food . i take 2 firewood , 2 food you for your ? <eos>
+Bob   : i really need firewood i am need i need water <eos>
+Alice : i need firewood . i give you 2 firewood , 1 water , 1 food 2 firewood . <eos>
+Bob   : ok , does work for deal . <eos>
+Alice : <selection>
+Alice : book=1 hat=2 ball=2
+Bob   : book=2 hat=1 ball=2
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:6) hat=(count:3 value:9) ball=(count:3 value:3)
+Bob   : book=(count:3 value:9) hat=(count:3 value:6) ball=(count:3 value:3)
+--------------------------------------------------------------------------------
+Bob   : hello , i am good . <eos>
+Alice : i am need most food , i am going camping trip . you need ? <eos>
+Bob   : i kids need firewood , i need water . <eos>
+Alice : i understand . i love . i really need water . <eos>
+Bob   : ok , i don't need firewood , i need water . <eos>
+Alice : i am going . i see . we able don't get too . i take 2 food 1 water , 1 food ? <eos>
+Bob   : i think we deal i get 2 firewood <eos>
+Alice : i think i take 2 firewood , 2 waters , 1 water , 1 firewood for you ? <eos>
+Bob   : i need firewood . <eos>
+Alice : i think i need water food . i am willing give you 2 waters 2 food , 1 water , 1 food , 1 water . <eos>
+Bob   : i am good . i love firewood , i am going use firewood . i think i need water . <eos>
+Alice : i really need food . i won't willing give you 2 water , you 2 water , 1 food , 2 firewood , 1 food . <eos>
+Bob   : sounds fair ! <eos>
+Alice : i am good , i take 2 firewood , 2 water 2 firewood 2 food . <eos>
+Bob   : you think i need food . we both deal <eos>
+Alice : i worried get 2 firewood , 1 food , 1 water , 1 firewood , 1 firewood <eos>
+Bob   : okay , i accept 2 food for water . <eos>
+Alice : okay , you 2 waters . i get 1 food , 2 firewood , 2 food 1 firewood 1 firewood ? <eos>
+Bob   : i think i give you 2 firewood , 2 food 1 food , 1 firewood ? <eos>
+Alice : i think i give you 1 food 1 water . <eos>
+--------------------------------------------------------------------------------
+Disagreement?!
+Alice : 0 (potential 0)
+Bob   : 0 (potential 0)
+--------------------------------------------------------------------------------
+dialog_len=10.38 sent_len=11.94 agree=62.50% advantage=3.60 time=0.216s comb_rew=42.00 alice_rew=22.12 alice_sel=33.33% alice_unique=97 bob_rew=19.88 bob_sel=66.67% bob_unique=96 full_match=0.18
+--------------------------------------------------------------------------------
+debug: 3 6 3 9 3 3 <no_agreement> <no_agreement> <no_agreement>
+debug: 3 9 3 6 3 3 <no_agreement> <no_agreement> <no_agreement>
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:3) hat=(count:3 value:9) ball=(count:3 value:6)
+Bob   : book=(count:3 value:3) hat=(count:3 value:6) ball=(count:3 value:9)
+--------------------------------------------------------------------------------
+Bob   : hello ! i am going camping trip ! <eos>
+Alice : hello <eos>
+Bob   : <selection>
+Alice : book=0 hat=3 ball=0
+Bob   : book=0 hat=3 ball=3
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:3) hat=(count:3 value:9) ball=(count:3 value:6)
+Bob   : book=(count:3 value:9) hat=(count:3 value:6) ball=(count:3 value:3)
+--------------------------------------------------------------------------------
+Bob   : hello , i am deal . <eos>
+Alice : <selection>
+Alice : book=0 hat=3 ball=0
+Bob   : book=3 hat=3 ball=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:3) hat=(count:3 value:6) ball=(count:3 value:9)
+Bob   : book=(count:3 value:3) hat=(count:3 value:9) ball=(count:3 value:6)
+--------------------------------------------------------------------------------
+Alice : hello ! how you doing today ? <eos>
+Bob   : hi ! <eos>
+Alice : hi ! i am doing ! i am excited camping trip ! <eos>
+Bob   : <selection>
+Alice : book=0 hat=0 ball=3
+Bob   : book=0 hat=3 ball=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:9) hat=(count:3 value:3) ball=(count:3 value:6)
+Bob   : book=(count:3 value:9) hat=(count:3 value:3) ball=(count:3 value:6)
+--------------------------------------------------------------------------------
+Alice : hi <eos>
+Bob   : i am doing good . i am going camping trip ! <eos>
+Alice : <selection>
+Alice : book=3 hat=0 ball=0
+Bob   : book=3 hat=0 ball=3
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:9) hat=(count:3 value:6) ball=(count:3 value:3)
+Bob   : book=(count:3 value:6) hat=(count:3 value:3) ball=(count:3 value:9)
+--------------------------------------------------------------------------------
+Alice : hi , i am looking ! i am excited camping trip . <eos>
+Bob   : i need water 2 food for you . i prefer food . <eos>
+Alice : i am okay ! i need firewood for water . <eos>
+Bob   : i need water . i am willing give you 1 food 1 firewood . i get 2 food , 1 water , 1 food . i get 2 firewood , 2 firewood , you take 1 food , 1 water ? <eos>
+Alice : i get 3 firewood , 1 water , 1 food , 1 food ? <eos>
+Bob   : i give you 1 water , 1 water 1 food . <eos>
+Alice : ok , i take 2 food , 1 firewood , you take 2 food for ? <eos>
+Bob   : sounds good . i am good . i am going firewood <eos>
+Alice : i am looking water . <eos>
+Bob   : oh ! i am looking forward camping trip . <eos>
+Alice : ok , i really need food . i guess i need food . <eos>
+Bob   : i think i need firewood . <eos>
+Alice : i am good . i am going need you get 3 firewood , i need 2 food , i take 2 firewood . i get 1 firewood . <eos>
+Bob   : i think i really need water . <eos>
+Alice : <selection>
+Alice : book=2 hat=2 ball=1
+Bob   : book=2 hat=1 ball=2
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:6) hat=(count:3 value:3) ball=(count:3 value:9)
+Bob   : book=(count:3 value:9) hat=(count:3 value:6) ball=(count:3 value:3)
+--------------------------------------------------------------------------------
+Bob   : hi , i really need water . i take 3 food , 2 firewood ? <eos>
+Alice : i really need food water . i need water . i think you need firewood . <eos>
+Bob   : i think i really don't need food i need least . <eos>
+Alice : yes , i need firewood . i need firewood , i need firewood , i give you 2 firewood , 2 firewood <eos>
+Bob   : sounds good - deal <eos>
+Alice : <selection>
+Alice : book=2 hat=0 ball=2
+Bob   : book=2 hat=2 ball=1
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:3) hat=(count:3 value:6) ball=(count:3 value:9)
+Bob   : book=(count:3 value:6) hat=(count:3 value:3) ball=(count:3 value:9)
+--------------------------------------------------------------------------------
+Alice : hello , how you ? <eos>
+Bob   : yes , i'm looking forward camping trip . <eos>
+Alice : i am pretty camping weekend , i'm going need most most . <eos>
+Bob   : i am looking forward camping trip . <eos>
+Alice : i am doing . i need water . how you ? <eos>
+Bob   : i am excited . i am sure we come ! <eos>
+Alice : <selection>
+Alice : book=0 hat=3 ball=3
+Bob   : book=3 hat=0 ball=3
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:9) hat=(count:3 value:3) ball=(count:3 value:6)
+Bob   : book=(count:3 value:9) hat=(count:3 value:6) ball=(count:3 value:3)
+--------------------------------------------------------------------------------
+Alice : hi , how you ? <eos>
+Bob   : i am doing good ! <eos>
+Alice : <selection>
+Alice : book=3 hat=0 ball=0
+Bob   : book=3 hat=3 ball=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:6) hat=(count:3 value:9) ball=(count:3 value:3)
+Bob   : book=(count:3 value:6) hat=(count:3 value:3) ball=(count:3 value:9)
+--------------------------------------------------------------------------------
+Bob   : hi ! <eos>
+Alice : hi ! i'm looking forward camping trip . <eos>
+Bob   : <selection>
+Alice : book=3 hat=3 ball=0
+Bob   : book=3 hat=0 ball=3
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:9) hat=(count:3 value:6) ball=(count:3 value:3)
+Bob   : book=(count:3 value:6) hat=(count:3 value:9) ball=(count:3 value:3)
+--------------------------------------------------------------------------------
+Bob   : hi ! i am doing good . <eos>
+Alice : <selection>
+Alice : book=3 hat=0 ball=0
+Bob   : book=1 hat=3 ball=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:9) hat=(count:3 value:6) ball=(count:3 value:3)
+Bob   : book=(count:3 value:3) hat=(count:3 value:6) ball=(count:3 value:9)
+--------------------------------------------------------------------------------
+Bob   : hello , i am looking for you . <eos>
+Alice : <selection>
+Alice : book=3 hat=0 ball=0
+Bob   : book=0 hat=3 ball=3
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 27 points
+Bob   : 45 points
+--------------------------------------------------------------------------------
+dialog_len=9.44 sent_len=11.38 agree=66.67% advantage=0.00 time=0.196s comb_rew=45.33 alice_rew=22.67 alice_sel=46.88% alice_unique=113 bob_rew=22.67 bob_sel=53.12% bob_unique=115 full_match=0.21
+--------------------------------------------------------------------------------
+debug: 3 9 3 6 3 3 item0=3 item1=0 item2=0 item0=0 item1=3 item2=3
+debug: 3 3 3 6 3 9 item0=0 item1=3 item2=3 item0=3 item1=0 item2=0
+================================================================================
+
+================================================================================
+Alice : book=(count:3 value:6) hat=(count:3 value:3) ball=(count:3 value:9)
+Bob   : book=(count:3 value:6) hat=(count:3 value:9) ball=(count:3 value:3)
+--------------------------------------------------------------------------------
+Alice : hi , i am going camping trip ! i am looking forward trip . <eos>
+Bob   : i am doing . i love camping trip . <eos>
+Alice : <selection>
+Alice : book=0 hat=0 ball=3
+Bob   : book=3 hat=3 ball=0
+--------------------------------------------------------------------------------
+Agreement!
+Alice : 27 points
+Bob   : 45 points
+--------------------------------------------------------------------------------
+dialog_len=8.80 sent_len=11.35 agree=70.00% advantage=-2.57 time=0.184s comb_rew=48.00 alice_rew=23.10 alice_sel=48.48% alice_unique=114 bob_rew=24.90 bob_sel=51.52% bob_unique=116 full_match=0.21
+--------------------------------------------------------------------------------
+debug: 3 6 3 3 3 9 item0=0 item1=0 item2=3 item0=3 item1=3 item2=0
+debug: 3 6 3 9 3 3 item0=3 item1=3 item2=0 item0=0 item1=0 item2=3
+================================================================================
+
