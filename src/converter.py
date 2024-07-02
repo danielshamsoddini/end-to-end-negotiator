@@ -62,7 +62,7 @@ for row in df.iterrows():
                 dialogue_str += f"{id}: <selection>"
                 invert_dialogue_str += f"{invert_id}: <selection>"
         elif a['text'] == 'Walk-Away':
-            output = "<disagree> " * 6
+            output = "<no_agreement> " * 6
             print(output)
         else:
             dialogue_str += f"{id}: {add_space_around_punctuation(unidecode(a['text']).lower())} <eos> "
