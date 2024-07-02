@@ -6,8 +6,9 @@ required packages are
 pytorch, visdom and
 pandas, pyarrow (if parsing casino dataset again)
 
+convert casino data to dnd format
 
-
+python converter.py "random seed number here"
 
 Training, Stage 1:
 what i ran:
