@@ -252,7 +252,7 @@ def main():
             except RuntimeError:
                 print("runtime error caught !!!")
 
-            if global_counter >= 1:#changed cause of much smaller dataset
+            if global_counter >= 1000:#changed cause of much smaller dataset
                 # atleast 10k iterations happened
                 
                 # reset the global counter

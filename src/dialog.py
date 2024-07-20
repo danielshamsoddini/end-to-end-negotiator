@@ -20,16 +20,16 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(filename)s : %(messa
 
 class DialogLogger(object):
     """Logger for a dialogue."""
-    # CODE2ITEM = [
-    #     ('item0', 'book'),
-    #     ('item1', 'hat'),
-    #     ('item2', 'ball'),
-    # ]
     CODE2ITEM = [
-        ('item0', 'Firewood'),
-        ('item1', 'Food'),
-        ('item2', 'Water'),
+        ('item0', 'book'),
+        ('item1', 'hat'),
+        ('item2', 'ball'),
     ]
+    # CODE2ITEM = [
+    #     ('item0', 'Firewood'),
+    #     ('item1', 'Food'),
+    #     ('item2', 'Water'),
+    # ]
 
     def __init__(self, verbose=False, log_file=None, append=False):
         self.logs = []
@@ -243,6 +243,7 @@ class Dialog(object):
             # evaluate the choices, produce agreement and a reward
             agree, rewards = self.domain.score_choices(choices, ctxs, rw_type=self.rw_type, conf=self.conf)
         
+        print(agree, rewards)
         if agree == -1 and rewards == -1:
             # this is neither an agreement, nor a disagreement - we don't know due to model failure.
             # print("Failure mode. - agree and rewards are both None. Ignoring this case.")

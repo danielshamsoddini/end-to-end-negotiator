@@ -108,6 +108,16 @@ python reinforce.py \
   --bob_model sv_model.th \
   --output_model_file rl_model.th
 
+python reinforce.py --data data/negotiate --bsz 16 --clip 1 --context_file data/negotiate/selfplay.txt --eps 0.0 --gamma 0.95 --lr 0.5 --momentum 0.1 --nepoch 4 --nesterov --ref_text data/negotiate/train.txt --rl_clip 1 --rl_lr 0.2 --score_threshold 6 --sv_train_freq 4 --temperature 0.5 --alice_model logs/dnd/supervised_dnd.pt --bob_model logs/dnd/supervised_dnd.pt --rw_type utility --output_model_file logs/dnd/rl_model.pt
+
+python reinforce.py --data data/negotiate --bsz 16 --clip 1 --context_file data/negotiate/selfplay.txt --eps 0.0 --gamma 0.95 --lr 0.5 --momentum 0.1 --nepoch 4 --nesterov --ref_text data/negotiate/train.txt --rl_clip 1 --rl_lr 0.2 --score_threshold 6 --sv_train_freq 4 --temperature 0.5 --alice_model logs/dnd/supervised_dnd.pt --bob_model logs/dnd/rl_model_rw_utility_1_0_0_0.pt --rw_type utility --output_model_file logs/dnd/stage_3_selfish.pt
+Supervised against fair:
+python reinforce.py --data data/negotiate --bsz 16 --clip 1 --context_file data/negotiate/selfplay.txt --eps 0.0 --gamma 0.95 --lr 0.5 --momentum 0.1 --nepoch 4 --nesterov --ref_text data/negotiate/train.txt --rl_clip 1 --rl_lr 0.2 --score_threshold 6 --sv_train_freq 4 --temperature 0.5 --alice_model logs/dnd/supervised_dnd.pt --bob_model logs/dnd/rl_model_rw_utility_1_0_-0.75_-0.75.pt --rw_type utility --output_model_file logs/dnd/stage_3_fair.pt
+
+python selfplay.py --alice_model_file logs\dnd\supervised_dnd.pt --bob_model_file logs\dnd\supervised_dnd.pt --context_file data/negotiate/selfplay.txt --temperature 0.5 --log_file dnd_SL_model.log --ref_text data/negotiate/train.txt
+
+
+
 ```
 ### Selfplay
 If you want to have two pretrained models to negotiate against each another, use `selfplay.py`. For example, lets have the reinforced model to play against the supervised model:

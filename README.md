@@ -12,9 +12,9 @@ python converter.py "random seed number here"
 
 Training, Stage 1:
 what i ran:
-python train.py  --data data/casino --bsz 32  --clip 0.5  --decay_every 1  --decay_rate 5.0  --dropout 0.5  --init_range 0.1  --lr 1  --max_epoch 50  --min_lr 0.01  --momentum 0.1  --nembed_ctx 128  --nembed_word 512  --nesterov  --nhid_attn 512  --nhid_ctx 128  --nhid_lang 256  --nhid_sel 512  --nhid_strat 256  --sel_weight 0.5  --model_file logs/casino/supervised_casino.pt
+python train.py  --data data/casino --bsz 32  --clip 0.5  --decay_every 1  --decay_rate 5.0  --dropout 0.5  --init_range 0.1  --lr 1  --max_epoch 50  --min_lr 0.01  --momentum 0.1  --nembed_ctx 128  --nembed_word 512  --nesterov  --nhid_attn 512  --nhid_ctx 128  --nhid_lang 256  --nhid_sel 512  --nhid_strat 256  --sel_weight 0.5  --model_file logs/test_unk/supervised_casino.pt --visual
 original version:
-python train.py  --data data/casino --bsz 16  --clip 0.5  --decay_every 1  --decay_rate 5.0  --dropout 0.5  --init_range 0.1  --lr 1  --max_epoch 30  --min_lr 0.01  --momentum 0.1  --nembed_ctx 64  --nembed_word 256  --nesterov  --nhid_attn 256  --nhid_ctx 64  --nhid_lang 128  --nhid_sel 256  --nhid_strat 128  --sel_weight 0.5  --model_file logs/casino/sv_model.pt
+python train.py  --data data/casino --bsz 16  --clip 0.5  --decay_every 1  --decay_rate 5.0  --dropout 0.5  --init_range 0.1  --lr 1  --max_epoch 30  --min_lr 0.01  --momentum 0.1  --nembed_ctx 64  --nembed_word 256  --nesterov  --nhid_attn 256  --nhid_ctx 64  --nhid_lang 128  --nhid_sel 256  --nhid_strat 128  --sel_weight 0.5  --model_file logs/test_unk/sv_model.pt
 
 First Reinforce, Stage 2:
  python reinforce.py --data data/casino --bsz 16 --clip 1 --context_file data/casino/selfplay.txt --eps 0.0 --gamma 0.95 --lr 0.5 --momentum 0.1 --nepoch 4 --nesterov --ref_text data/casino/train.txt --rl_clip 1 --rl_lr 0.2 --score_threshold 6 --sv_train_freq 4 --temperature 0.5 --alice_model logs/casino/supervised_casino.pt --bob_model logs/casino/supervised_casino.pt --rw_type utility --output_model_file logs/casino/rl_model.pt
@@ -53,3 +53,9 @@ final: train_select_loss 0.830 train_select_ppl 2.292
 final: valid_loss 3.173 valid_ppl 23.889
 final: valid_select_loss 1.033 valid_select_ppl 2.809
 final: dialog_len=9.59 sent_len=14.43 agree=81.82% advantage=3.39 time=0.789s comb_rew=38.86 alice_rew=20.90 alice_sel=42.55% alice_unique=436 bob_rew=17.97 bob_sel=56.74% bob_unique=411 full_match=0.26
+
+
+
+Training DND:
+
+python train.py  --data data/negotiate --bsz 16  --clip 0.5  --decay_every 1  --decay_rate 5.0  --dropout 0.5  --init_range 0.1  --lr 1  --max_epoch 30  --min_lr 0.01  --momentum 0.1  --nembed_ctx 64  --nembed_word 256  --nesterov  --nhid_attn 256  --nhid_ctx 64  --nhid_lang 128  --nhid_sel 256  --nhid_strat 128  --sel_weight 0.5  --model_file logs/dnd/sv_model.pt

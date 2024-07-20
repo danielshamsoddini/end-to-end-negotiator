@@ -66,7 +66,7 @@ for row in df.iterrows():
             print(output)
         else:
             dialogue_str += f"{id}: {add_space_around_punctuation(unidecode(a['text']).lower())} <eos> "
-            invert_dialogue_str += f"{invert_id}: {add_space_around_punctuation(unidecode(a['text']).lower())} <eos> "
+            invert_dialogue_str += f"{invert_id}: {stopword_remover(add_space_around_punctuation(unidecode(a['text']).lower()))} <eos> "
 
     #each item has a total quantity of 3
     input_arr = {row[1]["participant_info"]['mturk_agent_1']["value2issue"][k]:v for k,v in val2num.items()}
